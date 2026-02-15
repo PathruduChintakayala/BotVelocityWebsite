@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { Menu, Terminal, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { href: "/platform", label: "Platform" },
@@ -60,7 +60,7 @@ export function Header() {
           aria-label="Bot Velocity home"
           className="inline-flex items-center gap-2 text-neutral-900 hover:text-indigo-600 shrink-0"
         >
-          <Terminal size={18} />
+          <img src="/logo.svg" alt="Bot Velocity logo" className="h-5 w-5" />
           <span className="font-semibold tracking-tight">Bot Velocity</span>
         </Link>
         <nav

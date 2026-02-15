@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { Linkedin } from "lucide-react";
+
+const LINKEDIN_URL = "https://www.linkedin.com/company/botvelocity";
 
 export function Footer() {
   const columns = [
@@ -24,6 +27,7 @@ export function Footer() {
       links: [
         { href: "/blog", label: "Blog" },
         { href: "/rss.xml", label: "RSS Feed" },
+        { href: LINKEDIN_URL, label: "LinkedIn", external: true },
         { href: "mailto:hello@botvelocity.com", label: "hello@botvelocity.com" },
         {
           href: "mailto:security@botvelocity.com",
@@ -51,9 +55,19 @@ export function Footer() {
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-neutral-400">
                 {column.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.href + link.label}>
                     {link.href.startsWith("mailto:") ? (
                       <a href={link.href} className="hover:text-neutral-100">
+                        {link.label}
+                      </a>
+                    ) : "external" in link && link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 hover:text-neutral-100"
+                      >
+                        <Linkedin size={16} />
                         {link.label}
                       </a>
                     ) : (
@@ -68,18 +82,21 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-10 pt-6 border-t border-neutral-800 text-sm text-neutral-500">
-          <p>Bot Velocity. Control plane infrastructure for AI automation.</p>
-          <p className="mt-1">
-            LinkedIn:{" "}
-            <a
-              href="https://www.linkedin.com/company/botvelocity"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-neutral-300"
-            >
-              botvelocity
-            </a>
+          <p className="inline-flex items-center gap-2">
+            <img src="/logo.svg" alt="Bot Velocity logo" className="h-5 w-5" />
+            <span>Bot Velocity</span>
           </p>
+          <p className="mt-2">Control plane infrastructure for AI automation.</p>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-neutral-500 hover:text-neutral-300"
+            aria-label="Bot Velocity on LinkedIn"
+          >
+            <Linkedin size={18} />
+            <span>LinkedIn</span>
+          </a>
         </div>
       </div>
     </footer>

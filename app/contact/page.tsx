@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { Section } from "@/components/Section";
 
 export default function ContactPage() {
@@ -20,10 +20,12 @@ export default function ContactPage() {
           Or connect via{" "}
           <a
             href="https://www.linkedin.com/company/botvelocity"
-            className="text-indigo-600 hover:text-indigo-500"
+            className="text-indigo-600 hover:text-indigo-500 inline-flex items-center gap-2"
             target="_blank"
             rel="noreferrer"
+            aria-label="Bot Velocity on LinkedIn"
           >
+            <Linkedin size={16} />
             LinkedIn
           </a>
           .
