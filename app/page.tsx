@@ -35,19 +35,32 @@ const summaryColumns = [
 ];
 
 const operationalGuarantees = [
-  "Explicit lifecycle state transitions",
-  "Deterministic retry authority",
-  "Idempotent job scheduling",
-  "Replay-safe execution",
-  "Strict contract validation",
+  {
+    title: "Explicit lifecycle state transitions",
+    description: "Know the exact state of every run with auditable transitions and no ambiguity.",
+  },
+  {
+    title: "Deterministic retry authority",
+    description: "Centralized retry logic prevents duplicate side effects and conflicting ownership.",
+  },
+  {
+    title: "Idempotent job scheduling",
+    description: "Execution keys and guarded submissions stop duplicate work before it starts.",
+  },
+  {
+    title: "Replay-safe execution",
+    description: "Controlled replays preserve integrity while enabling safe recovery and debugging.",
+  },
+  {
+    title: "Strict contract validation",
+    description: "Interface and package contracts are enforced to block drift and runtime surprises.",
+  },
 ];
 
 const riskCards = [
-  "Silent distributed failures",
-  "Ad-hoc retry logic",
-  "Model regressions post-deploy",
-  "Untracked LLM cost escalation",
-  "Lack of governance enforcement",
+  "Distributed retries create duplicate side effects",
+  "Silent regressions erode production performance",
+  "Weak governance makes cost and quality unpredictable",
 ];
 
 const capabilities = [
@@ -129,41 +142,18 @@ export default async function HomePage() {
   return (
     <>
       <Hero
-        title="Deterministic Control Plane for AI Automation"
-        description="Bot Velocity provides authoritative orchestration, evaluation intelligence, and governance enforcement for AI-powered workflows operating in production environments."
-        primaryCta={{ href: "/contact", label: "Request Access" }}
-        secondaryCta={{ href: "/execution-model", label: "View Execution Model" }}
+        title="Enterprise Control Plane for Reliable, Scalable AI Automation"
+        description="Bot Velocity makes AI-powered workflows observable, governable, and reliable at scale — enabling teams to deploy AI automation with operational confidence."
+        primaryCta={{ href: "/contact", label: "Request Early Access" }}
+        secondaryCta={{ href: "/execution-model", label: "View Architecture" }}
       />
 
-      <Section variant="dark" title="Platform Summary">
-        <div className="grid gap-4 md:grid-cols-3">
-          {summaryColumns.map((column) => (
-            <article key={column.title} className="card-dark p-6">
-              <column.icon size={20} className="text-indigo-500" />
-              <h3 className="mt-4 text-xl font-semibold text-neutral-100">{column.title}</h3>
-              <p className="mt-2 text-neutral-300">{column.description}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section variant="light" title="Operational Guarantees by Design">
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {operationalGuarantees.map((item) => (
-            <article key={item} className="card-light card-hover px-4 py-3">
-              <p className="text-neutral-700">{item}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section variant="dark" title="Why AI Automation Breaks in Production">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
+      <Section id="problem" variant="dark" title="AI Automation Fails Without Lifecycle Authority">
+        <div className="grid gap-4 lg:grid-cols-2 lg:items-start">
           <p className="text-lg text-neutral-300 leading-8">
-            AI workflows are often assembled from independent agents, fragmented retry
-            logic, and ad-hoc deployment controls. Without a centralized control plane,
-            production systems become difficult to govern, expensive to operate, and
-            fragile under real-world load and change velocity.
+            Distributed agents and fragmented retries create failure modes that
+            only a centralized control plane can prevent. Without lifecycle authority,
+            automation becomes brittle, costly, and difficult to audit.
           </p>
           <ul className="grid gap-3">
             {riskCards.map((item) => (
@@ -175,7 +165,41 @@ export default async function HomePage() {
         </div>
       </Section>
 
+      <Section id="control-plane" variant="light" title="Why a Control Plane Matters">
+        <div className="max-w-4xl space-y-4 text-neutral-700 leading-7">
+          <p>
+            Deterministic state transitions give operators authoritative visibility into every run.
+            With clear ownership, governed retries, and enforced contracts, teams prevent split-brain
+            failures and ensure every change ships with measurable reliability.
+          </p>
+        </div>
+      </Section>
+
+      <Section id="platform-summary" variant="dark" title="Platform Summary">
+        <div className="grid gap-4 md:grid-cols-3">
+          {summaryColumns.map((column) => (
+            <article key={column.title} className="card-dark p-6">
+              <column.icon size={20} className="text-indigo-500" />
+              <h3 className="mt-4 text-xl font-semibold text-neutral-100">{column.title}</h3>
+              <p className="mt-2 text-neutral-300">{column.description}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="operational-guarantees" variant="light" title="Operational Guarantees by Design">
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {operationalGuarantees.map((item) => (
+            <article key={item.title} className="card-light card-hover px-4 py-4">
+              <h3 className="text-sm font-semibold text-neutral-900">{item.title}</h3>
+              <p className="mt-2 text-neutral-700 text-sm leading-6">{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Section
+        id="execution-model"
         variant="light"
         title="The Bot Velocity Execution Model"
         description="Bot Velocity separates orchestration, execution, instrumentation, and evaluation into distinct layers. This separation ensures deterministic control, operational integrity, and tenant isolation."
@@ -189,7 +213,7 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      <Section variant="dark" title="Core Capabilities">
+      <Section id="capabilities" variant="dark" title="Core Capabilities">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {capabilities.map((item) => (
             <FeatureCard key={item.title} {...item} variant="dark" />
@@ -197,7 +221,7 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      <Section variant="light" title="Enterprise-Grade Execution Guarantees">
+      <Section id="execution-guarantees" variant="light" title="Enterprise-Grade Execution Guarantees">
         <div className="grid gap-3 md:grid-cols-2">
           {executionGuarantees.map((item) => (
             <article key={item} className="card-light card-hover px-4 py-3">
@@ -208,6 +232,7 @@ export default async function HomePage() {
       </Section>
 
       <Section
+        id="evaluation"
         variant="dark"
         title="Built-In Evaluation Intelligence"
         description="Evaluation is integrated into the control plane to provide deterministic quality gating for workflow changes."
@@ -221,11 +246,11 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      <Section variant="light" title="Designed for AI Platform Teams">
+      <Section id="use-cases" variant="light" title="Designed for AI Platform Teams">
         <CapabilityGrid items={useCases} variant="light" />
       </Section>
 
-      <Section variant="dark" title="Security & Operational Integrity">
+      <Section id="trust-center-preview" variant="dark" title="Security & Operational Integrity">
         <ul className="grid gap-3 md:grid-cols-2">
           {securityPreview.map((item) => (
             <li key={item} className="card-dark px-4 py-3 text-neutral-200">
@@ -238,7 +263,7 @@ export default async function HomePage() {
         </a>
       </Section>
 
-      <Section variant="light" title="Latest Technical Writing">
+      <Section id="blog" variant="light" title="Latest Technical Writing">
         <div className="grid gap-4 md:grid-cols-3">
           {featuredPosts.map((post) => (
             <BlogCard key={post.slug} {...post} variant="light" />

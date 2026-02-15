@@ -3,6 +3,7 @@ type PostMetadata = {
   excerpt: string;
   date: string;
   author?: string;
+  tags?: string[];
 };
 
 type Post = {
@@ -13,6 +14,7 @@ type Post = {
   rawDate: string;
   author: string;
   readingTime: string;
+  tags: string[];
 };
 
 type PostModule = {
@@ -62,6 +64,7 @@ export async function getPosts(): Promise<Post[]> {
         date: postModule.metadata.date,
         author: postModule.metadata.author ?? "Bot Velocity Engineering",
         readingTime: calculateReadingTime(slug),
+        tags: postModule.metadata.tags ?? [],
       };
     }),
   );
@@ -87,5 +90,6 @@ export async function getPostBySlug(slug: string) {
   return {
     ...postModule,
     readingTime: calculateReadingTime(slug),
+    tags: postModule.metadata.tags ?? [],
   };
 }

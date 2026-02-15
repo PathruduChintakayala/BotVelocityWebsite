@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin } from "lucide-react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/botvelocity";
@@ -9,17 +10,16 @@ export function Footer() {
       heading: "Product",
       links: [
         { href: "/platform", label: "Platform" },
-        { href: "/execution-model", label: "Execution Model" },
-        { href: "/capabilities", label: "Capabilities" },
-        { href: "/architecture", label: "Architecture" },
+        { href: "/solutions", label: "Use Cases" },
+        { href: "/contact", label: "Contact" },
       ],
     },
     {
-      heading: "Company",
+      heading: "Technology",
       links: [
-        { href: "/company", label: "Company" },
-        { href: "/solutions", label: "Solutions" },
-        { href: "/contact", label: "Contact" },
+        { href: "/execution-model", label: "Execution Model" },
+        { href: "/capabilities", label: "Technology" },
+        { href: "/architecture", label: "Architecture" },
       ],
     },
     {
@@ -83,7 +83,7 @@ export function Footer() {
         </div>
         <div className="mt-10 pt-6 border-t border-neutral-800 text-sm text-neutral-500">
           <p className="inline-flex items-center gap-2">
-            <img src="/logo.svg" alt="Bot Velocity logo" className="h-5 w-5" />
+            <Image src="/logo.svg" alt="Bot Velocity logo" width={20} height={20} />
             <span>Bot Velocity</span>
           </p>
           <p className="mt-2">Control plane infrastructure for AI automation.</p>

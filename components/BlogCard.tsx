@@ -7,6 +7,7 @@ type BlogCardProps = {
   date: string;
   author?: string;
   readingTime?: string;
+  tags?: string[];
   variant?: "light" | "dark";
 };
 
@@ -17,6 +18,7 @@ export function BlogCard({
   date,
   author,
   readingTime,
+  tags = [],
   variant = "light",
 }: BlogCardProps) {
   const cardClass = variant === "dark" ? "card-dark" : "card-light";
@@ -49,6 +51,22 @@ export function BlogCard({
         </Link>
       </h3>
       <p className={`mt-3 ${excerptClass}`}>{excerpt}</p>
+      {tags.length ? (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className={`rounded-full px-2 py-1 text-xs ${
+                variant === "dark"
+                  ? "bg-neutral-800 text-neutral-200"
+                  : "bg-neutral-100 text-neutral-700"
+              }`}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      ) : null}
     </article>
   );
 }
