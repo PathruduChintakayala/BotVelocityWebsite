@@ -41,6 +41,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
 
   const PostComponent = post.default;
   const author = post.metadata.author ?? "Bot Velocity Engineering";
+  const tags = post.tags ?? [];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -58,6 +59,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
       url: "https://botvelocity.com",
     },
     url: `https://botvelocity.com/blog/${slug}`,
+    keywords: tags,
   };
 
   return (
@@ -74,6 +76,15 @@ export default async function BlogPostPage({ params }: PostPageProps) {
             <span>{post.readingTime}</span>
           </div>
           <p className="text-sm text-neutral-500 mb-6">{author}</p>
+          {tags.length ? (
+            <div className="mb-6 flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span key={tag} className="rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-700">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          ) : null}
           <div className="prose-enterprise">
             <PostComponent />
           </div>

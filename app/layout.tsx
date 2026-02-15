@@ -5,8 +5,8 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Bot Velocity",
-    default: "Bot Velocity – Deterministic Control Plane for AI Automation",
+    template: "%s | Bot Velocity — Control Plane for AI Automation",
+    default: "Bot Velocity — Control Plane for AI Automation",
   },
   description:
     "Enterprise-grade orchestration, evaluation, and governance for AI-powered workflows.",
@@ -16,18 +16,27 @@ export const metadata: Metadata = {
     apple: "/FeviCon.svg",
   },
   openGraph: {
-    title: "Bot Velocity – Deterministic Control Plane for AI Automation",
+    title: "Bot Velocity — Control Plane for AI Automation",
     description:
       "Enterprise-grade orchestration, evaluation, and governance for AI-powered workflows.",
     url: "https://botvelocity.com",
     siteName: "Bot Velocity",
     type: "website",
+    images: [
+      {
+        url: "https://botvelocity.com/share-card.png",
+        width: 1200,
+        height: 630,
+        alt: "Bot Velocity — Control Plane for AI Automation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bot Velocity – Deterministic Control Plane for AI Automation",
+    title: "Bot Velocity — Control Plane for AI Automation",
     description:
       "Enterprise-grade orchestration, evaluation, and governance for AI-powered workflows.",
+    images: ["https://botvelocity.com/share-card.png"],
   },
   metadataBase: new URL("https://botvelocity.com"),
 };

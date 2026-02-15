@@ -2,22 +2,24 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
   { href: "/platform", label: "Platform" },
   { href: "/execution-model", label: "Execution Model" },
-  { href: "/capabilities", label: "Capabilities" },
-  { href: "/solutions", label: "Solutions" },
+  { href: "/capabilities", label: "Technology" },
+  { href: "/solutions", label: "Use Cases" },
   { href: "/architecture", label: "Architecture" },
   { href: "/blog", label: "Blog" },
   { href: "/company", label: "Company" },
-  { href: "/security", label: "Security" },
+  { href: "/security", label: "Trust Center" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
@@ -52,15 +54,28 @@ export function Header() {
     };
   }, [isMenuOpen, closeMenu]);
 
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 4);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 border-b border-neutral-200 backdrop-blur-sm">
+    <header
+      className={`sticky top-0 z-50 bg-white/95 border-b border-neutral-200 backdrop-blur-sm transition-shadow ${
+        isScrolled ? "shadow-sm" : ""
+      }`}
+    >
       <div className="container-shell h-16 flex items-center justify-between gap-6">
         <Link
           href="/"
           aria-label="Bot Velocity home"
           className="inline-flex items-center gap-2 text-neutral-900 hover:text-indigo-600 shrink-0"
         >
-          <img src="/logo.svg" alt="Bot Velocity logo" className="h-5 w-5" />
+          <Image src="/logo.svg" alt="Bot Velocity logo" width={20} height={20} />
           <span className="font-semibold tracking-tight">Bot Velocity</span>
         </Link>
         <nav
