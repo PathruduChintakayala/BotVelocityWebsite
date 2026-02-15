@@ -1,0 +1,46 @@
+export const metadata = {
+  title: "Deterministic Orchestration and the Control Plane Model",
+  excerpt:
+    "How state-aware orchestration and centralized execution authority create reliability for enterprise agent workflows.",
+  date: "2026-02-09",
+  author: "Bot Velocity Engineering",
+};
+
+# Deterministic Orchestration and the Control Plane Model
+
+Determinism does not eliminate model variability. It establishes execution boundaries so variability remains observable, governable, and recoverable.
+
+## Explicit state transitions are foundational
+
+A production workflow needs formal states such as `queued`, `running`, `awaiting_tool`, `retrying`, `failed`, and `completed`. These states define legal transitions and remove ambiguity during incident response.
+
+When state is explicit, operators can answer critical questions immediately:
+
+- where execution is stalled
+- why a transition happened
+- what action is safe next
+
+## Control planes prevent distributed ownership conflicts
+
+Without a control plane, multiple workers may act on the same run concurrently. This leads to split-brain retries, duplicate writes, and undefined final state.
+
+Control planes establish authoritative ownership through lease enforcement and revision checks.
+
+## Dead-letter queues are a reliability boundary
+
+Some failures should not be retried indefinitely. Dead-letter queues provide a deterministic endpoint for runs that require policy updates, dependency remediation, or human review.
+
+Each DLQ event should preserve:
+
+- transition history
+- failure classification
+- execution context
+- policy decisions
+
+## Deterministic systems improve evaluation quality
+
+Evaluation pipelines depend on reproducibility. Deterministic orchestration creates stable replay boundaries, making baseline comparisons and regression analysis statistically meaningful.
+
+## Closing
+
+The control plane model turns AI workflows from best-effort scripts into managed production systems.

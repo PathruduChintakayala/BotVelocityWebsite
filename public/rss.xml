@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bot Velocity Engineering Journal</title>
+    <link>https://botvelocity.com/blog</link>
+    <description>Technical analysis on orchestration, evaluation, and governance for enterprise AI systems.</description>
+    <language>en-us</language>
+    <atom:link href="https://botvelocity.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Governance Layer for Enterprise AI Systems</title>
+      <link>https://botvelocity.com/blog/governance-layer-for-ai-systems</link>
+      <description>Why policy enforcement, CI quality gates, and execution auditability are essential for production AI automation.</description>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://botvelocity.com/blog/governance-layer-for-ai-systems</guid>
+    </item>
+    <item>
+      <title>Deterministic Orchestration and the Control Plane Model</title>
+      <link>https://botvelocity.com/blog/deterministic-orchestration-control-plane</link>
+      <description>How state-aware orchestration and centralized execution authority create reliability for enterprise agent workflows.</description>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://botvelocity.com/blog/deterministic-orchestration-control-plane</guid>
+    </item>
+    <item>
+      <title>AI Automation Production Failures: Patterns Enterprises Must Eliminate</title>
+      <link>https://botvelocity.com/blog/ai-automation-production-failures</link>
+      <description>Why distributed failure modes, retry fragmentation, and governance blind spots cause AI automation breakdowns in production.</description>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://botvelocity.com/blog/ai-automation-production-failures</guid>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,45 @@
+export const metadata = {
+  title: "The Governance Layer for Enterprise AI Systems",
+  excerpt:
+    "Why policy enforcement, CI quality gates, and execution auditability are essential for production AI automation.",
+  date: "2026-02-12",
+  author: "Bot Velocity Engineering",
+};
+
+# The Governance Layer for Enterprise AI Systems
+
+Most teams focus first on prompts, model choice, and tool integrations. Enterprise reliability depends on a different layer: governance.
+
+## Policy enforcement must execute in-band
+
+Governance controls are effective only when they participate directly in run execution. Examples include:
+
+- tool allow-list and deny-list policies
+- role-based action boundaries
+- output handling constraints
+- escalation and approval paths
+
+Advisory controls applied after execution do not prevent production incidents.
+
+## CI gates transform evaluation into an operating control
+
+Evaluation should not be a periodic report. It should be an automated gate in deployment workflows, with explicit pass/fail criteria tied to baseline performance.
+
+Effective gates typically include:
+
+- regression threshold checks
+- variance and drift analysis
+- flaky behavior detection
+- scenario-based score requirements
+
+## Auditability is a core enterprise requirement
+
+Security and compliance teams need evidence of who executed what, when, and under which policy decisions. Governance layers should produce traceable records without requiring manual reconstruction.
+
+## Governance reduces operational and financial risk
+
+By enforcing run-time controls and quality thresholds, governance layers reduce model misuse, workflow regressions, and unmanaged cost expansion.
+
+## Closing
+
+Prompts shape model behavior. Governance shapes production outcomes. Enterprise AI systems require both, with governance embedded in the control path.

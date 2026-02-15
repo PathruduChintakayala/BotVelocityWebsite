@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <!-- Background square -->
+  <rect x="5" y="5" width="30" height="30" rx="3" fill="#0066FF"/>
+  
+  <!-- Two dots/eyes -->
+  <circle cx="15" cy="20" r="4" fill="white"/>
+  <circle cx="25" cy="20" r="4" fill="white"/>
+  
+  <!-- Small triangle at top -->
+  <path d="M20 2 L25 7 L15 7 Z" fill="#0066FF"/>
+</svg>

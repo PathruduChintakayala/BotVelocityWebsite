@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --surface-light: #ffffff;
+  --text-light: #171717;
+  --accent-light: #4f46e5;
+  --border-light: #e5e7eb;
+  --surface-dark: #0a0a0a;
+  --text-dark: #f5f5f5;
+  --accent-dark: #6366f1;
+  --border-dark: #27272a;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  @apply bg-white text-neutral-900 antialiased;
+}
+
+a {
+  @apply transition-colors duration-200;
+}
+
+.container-shell {
+  @apply max-w-7xl mx-auto px-6 lg:px-8;
+}
+
+.section-light {
+  @apply bg-white text-neutral-900;
+}
+
+.section-dark {
+  @apply bg-neutral-950 text-neutral-100;
+}
+
+.card-light {
+  @apply rounded-xl border border-neutral-200 bg-white;
+}
+
+.card-dark {
+  @apply rounded-xl border border-neutral-800 bg-neutral-900;
+}
+
+.accent-light {
+  color: var(--accent-light);
+}
+
+.accent-dark {
+  color: var(--accent-dark);
+}
+
+.prose-enterprise {
+  @apply leading-7 max-w-none;
+}
+
+.prose-enterprise h1 {
+  @apply text-4xl font-semibold tracking-tight;
+}
+
+.prose-enterprise h2 {
+  @apply text-2xl mt-10 mb-4 font-semibold tracking-tight;
+}
+
+.prose-enterprise p,
+.prose-enterprise li {
+  @apply text-neutral-700;
+}
+
+.prose-enterprise p {
+  @apply mb-5;
+}
+
+.prose-enterprise ul {
+  @apply list-disc pl-5 mb-5;
+}
+
+.prose-enterprise a {
+  @apply text-indigo-600 no-underline hover:text-indigo-500;
+}
+
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-md;
+}
